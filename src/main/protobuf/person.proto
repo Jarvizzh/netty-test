@@ -1,0 +1,42 @@
+syntax = "proto2";
+
+package com.jarvis.netty.protobuf_6;
+
+option java_package = "com.jarvis.netty.protobuf_6";
+option java_outer_classname = "PbInfo";
+option optimize_for = SPEED;
+
+message MyMessage {
+
+    enum DataType {
+        PersonType = 1;
+        DogType = 2;
+        CatType = 3;
+    }
+
+    required DataType data_type = 1;
+
+    oneof dataBody {
+        Person person = 2;
+        Dog dog = 3;
+        Cat cat = 4;
+    }
+}
+
+
+message Person {
+    optional string name = 1;
+    optional int32 age = 2;
+    optional string id = 3;
+    repeated string arr = 4;
+}
+
+message Dog {
+    optional string name = 1;
+    optional int32 age = 2;
+}
+
+message Cat {
+    optional string name = 1;
+    optional int32 age = 2;
+}
