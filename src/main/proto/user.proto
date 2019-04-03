@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package com.jarvis.grpc;
+
+option java_package = "com.jarvis.grpc.proto";
+option java_outer_classname = "User";
+option java_multiple_files = true;
+
+service UserService {
+
+    rpc getRealName (MyReq) returns (MyResp) {
+    };
+
+}
+
+message MyReq {
+    string username = 1;
+}
+
+message MyResp {
+    string realName = 1;
+}
+
